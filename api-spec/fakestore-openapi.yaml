@@ -1,0 +1,105 @@
+openapi: 3.0.0
+info:
+  title: Fake Store API
+  version: 1.0.0
+  description: A simple e-commerce API for demonstration purposes
+servers:
+  - url: https://fakestoreapi.com
+paths:
+  /products:
+    get:
+      summary: Get all products
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:    
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+    post:
+      summary: Add a new product
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/NewProduct'
+      responses:
+        '201':
+          description: Successfully created product
+          content:
+            application/json:    
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/{id}:
+    get:
+      summary: Get a product by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:    
+              schema:
+                $ref: '#/components/schemas/Product'
+  /products/categories:
+    get:
+      summary: Get all categories
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:    
+              schema:
+                type: array
+                items:
+                  type: string
+components:
+  schemas:
+    Product:
+      type: object
+      properties:
+        id:
+          type: integer
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        category:
+          type: string
+        image:
+          type: string
+        rating:
+          type: object
+          properties:
+            rate:
+              type: number
+            count:
+              type: integer
+    NewProduct:
+      type: object
+      properties:
+        title:
+          type: string
+        price:
+          type: number
+        description:
+          type: string
+        category:
+          type: string
+        image:
+          type: string
+      required:
+        - title
+        - price
+        - description
+        - category
