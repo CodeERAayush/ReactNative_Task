@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 import { View, Text, StyleSheet, Image, ScrollView } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchProductById } from '../../slices';
+import CustomHeader from '../../components/CustomHeader';
+import ProductDetailHeader from '../../components/ProductDetailHeader';
+import { Colors } from '../../constants/color';
 
 const DetailScreen = ({ route }) => {
   const { productId } = route.params;
@@ -25,8 +28,13 @@ const DetailScreen = ({ route }) => {
   }
 
   return (
-    <ScrollView style={styles.container}>
-      <Image source={{ uri: currentProduct.image }} style={styles.image} />
+    <View style={styles.container}>
+      <CustomHeader/>
+      <ProductDetailHeader
+      item={currentProduct}
+      />
+    <ScrollView >
+      {/* <Image source={{ uri: currentProduct.image }} style={styles.image} />
       <Text style={styles.title}>{currentProduct.title}</Text>
       <Text style={styles.price}>${currentProduct.price.toFixed(2)}</Text>
       <Text style={styles.category}>Category: {currentProduct.category}</Text>
@@ -34,16 +42,14 @@ const DetailScreen = ({ route }) => {
       <View style={styles.ratingContainer}>
         <Text style={styles.rating}>Rating: {currentProduct.rating.rate} / 5</Text>
         <Text style={styles.ratingCount}>({currentProduct.rating.count} reviews)</Text>
-      </View>
+      </View> */}
     </ScrollView>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
+  container: {flex:1,backgroundColor:Colors?.white},
   image: {
     width: '100%',
     height: 300,
