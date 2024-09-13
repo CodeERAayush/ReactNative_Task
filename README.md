@@ -28,8 +28,7 @@ Before you can run this project, ensure you have the following tools installed:
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/your-username/your-repo-name.git
-cd your-repo-name
+git clone https://github.com/CodeERAayush/ReactNative_Task.git
 ```
 2. Install the dependencies:
 
@@ -79,6 +78,7 @@ npx react-native run-ios
   /components  # Reusable components
   /screens     # App screens
   /navigation  # React Navigation setup
-  /store       # Redux state management (if applicable)
+  /store       # Reduxtoolkit state management 
+  /slices       # Reduxtoolkit slices
   /constants   # App-wide constants (e.g., colors, dimensions)
 ```
