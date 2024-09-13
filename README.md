@@ -1,79 +1,84 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# React Native Project with OpenAPI Integration
 
-# Getting Started
+## Features
+- Cross-platform mobile app (Android & iOS)
+- OpenAPI integration for API calls
+- Responsive UI components
+- State management using Redux (if applicable)
+- Navigation using React Navigation
+- Form validation and error handling
+- Support for various device screen sizes
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## Prerequisites
 
-## Step 1: Start the Metro Server
+Before you can run this project, ensure you have the following tools installed:
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Node.js**: [Download here](https://nodejs.org/en/)
+- **React Native CLI**: Install using `npm install -g react-native-cli`
+- **Android Studio** (for Android development)
+- **Xcode** (for iOS development)
+- **Git** (optional, but recommended)
+- **OpenAPI Generator CLI**: `npm install @openapitools/openapi-generator-cli -g`
 
-To start Metro, run the following command from the _root_ of your React Native project:
+### For API integration:
+- You'll need access to an OpenAPI spec file (YAML or JSON format). Ensure the file is available in the `api-spec/` directory of your project.
 
-```bash
-# using npm
-npm start
+## Installation
 
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
+1. Clone the repository:
 
 ```bash
-# using npm
-npm run ios
+git clone https://github.com/your-username/your-repo-name.git
+cd your-repo-name
+```
+2. Install the dependencies:
 
-# OR using Yarn
-yarn ios
+```bash 
+npm install
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+3. Set up the OpenAPI Client:
+- Ensure that the OpenAPI specification file is available (e.g., api-spec/fakestore-openapi.yaml).
+- Run the following command to generate the API client:
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+```bash
+openapi-generator-cli generate -i api-spec/fakestore-openapi.yaml -g typescript-axios -o src/api
+```
 
-## Step 3: Modifying your App
+### This will generate a TypeScript API client in the src/api/ directory using the OpenAPI specification.
 
-Now that you have successfully run the app, let's modify it.
+4. Link native dependencies (if any):
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```bash
+npx react-native link
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+5. Run the project:
+For Android:
 
-## Congratulations! :tada:
+```bash
+npx react-native run-android
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+5. Run the project:
+for IOS:
 
-### Now what?
+```bash
+cd ios/
+pod install
+cd ..
+npx react-native run-ios
+```
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+### Project Structure
 
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+```bash
+/src
+  /api         # Generated API client from OpenAPI spec
+  /assets      # Images, fonts, etc.
+  /components  # Reusable components
+  /screens     # App screens
+  /navigation  # React Navigation setup
+  /store       # Redux state management (if applicable)
+  /constants   # App-wide constants (e.g., colors, dimensions)
+```
