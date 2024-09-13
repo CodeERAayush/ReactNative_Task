@@ -18,6 +18,10 @@ const HomeScreen = ({ navigation }) => {
     }
   }, [status, dispatch]);
 
+  const refresh=()=>{
+    dispatch(fetchProducts());
+  }
+
   const renderItem = ({ item }) => (
     <ProductsCard
     item={item}
@@ -30,9 +34,9 @@ const HomeScreen = ({ navigation }) => {
   //   return <Text>Loading...</Text>;
   // }
 
-  if (status === 'failed') {
-    return <Empty/>
-  }
+  // if (status === 'failed') {
+  //   return <Empty/>
+  // }
 
   return (
     <View style={styles.container}>
@@ -49,6 +53,8 @@ const HomeScreen = ({ navigation }) => {
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
         ListEmptyComponent={()=><Empty/>}
+        onRefresh={()=>refresh()}
+        refreshing={status==='loading'}
       />
       </>}
     </View>

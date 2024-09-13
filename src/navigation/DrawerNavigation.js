@@ -5,6 +5,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons'; // Import vector ico
 import HomeScreen from '../screens/Home';
 import AddProductScreen from '../screens/AddProduct';
 import { StyleSheet, TouchableOpacity } from 'react-native';
+import { Colors } from '../constants/color';
 
 const Drawer = createDrawerNavigator();
 
@@ -15,7 +16,7 @@ export default function DrawerNav() {
           <DrawerContentScrollView {...props}>
             {/* Close button */}
             <TouchableOpacity style={styles.closeButton} onPress={() => props.navigation.closeDrawer()}>
-              <Icon name="close" size={24} />
+              <Icon name="close" color={Colors?.gray} size={24} />
             </TouchableOpacity>
       
             {/* Drawer items */}

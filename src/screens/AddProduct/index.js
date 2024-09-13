@@ -103,6 +103,9 @@ const ProductForm = ({ navigation }) => {
       <View style={styles.inputContainer}>
         <TextHOC style={styles.labelText}>{label1}</TextHOC>
         <TextInput
+           placeholderTextColor=
+           {Colors?.gray}
+           inte
           style={[styles.input, error1 && styles.inputError]}
           value={value1}
           onChangeText={(text) => {
@@ -121,6 +124,7 @@ const ProductForm = ({ navigation }) => {
             <Text style={styles.dropdownButtonText}>{toShow}   ▿  </Text>
           </TouchableOpacity>
           <TextInput
+          placeholderTextColor={Colors?.gray}
             style={[styles.input, styles.combinedInputText]}
             value={value2}
             onChangeText={(text) => {
@@ -167,6 +171,7 @@ const ProductForm = ({ navigation }) => {
                 />
           </View>
           <TextInput
+          placeholderTextColor={Colors?.gray}
             style={[styles.descriptionInput, errors.description && styles.inputError]}
             value={description}
             onChangeText={(text) => {
@@ -181,6 +186,7 @@ const ProductForm = ({ navigation }) => {
 
         <TextHOC style={styles.labelText}>Image URL</TextHOC>
         <TextInput
+        placeholderTextColor={Colors?.gray}
           style={[styles.input, errors.image && styles.inputError]}
           value={image}
           onChangeText={(text) => {
@@ -235,7 +241,8 @@ const styles = StyleSheet.create({
     padding: heightPxToDP(1),
     fontFamily: Font?.Regular,
     fontSize: 16,
-    textAlign:'center'
+    textAlign:'center',
+    color:Colors?.black
   },
   combinedInput: {
     flexDirection: 'row',
@@ -277,6 +284,7 @@ const styles = StyleSheet.create({
     paddingVertical: heightPxToDP(1),
   },
   descriptionInput: {
+    color:Colors?.black,
     borderWidth: 1,
     borderColor: Colors?.lightGray,
     borderRadius: 5,

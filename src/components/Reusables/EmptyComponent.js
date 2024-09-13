@@ -4,6 +4,7 @@ import LottieView from 'lottie-react-native'
 import { heightPxToDP as hp } from '../../constants/screen'
 import { Colors } from 'react-native/Libraries/NewAppScreen'
 import { Font } from '../../assets/fonts'
+import TextHOC from '../TextComponentHOC'
 
 const Empty = () => {
   return (
@@ -14,9 +15,9 @@ const Empty = () => {
       loop
       style={styles?.animation}
       />
-      <Text allowFontScaling={false} style={styles.empty_text}>
+      <TextHOC style={styles.empty_text}>
         No Items Found
-      </Text>
+      </TextHOC>
     </View>
   )
 }
@@ -28,9 +29,9 @@ const styles = StyleSheet.create({
         height:hp(25),
     },
     empty_text:{
-        color:Colors?.black45,
+        color:Colors?.black,
         alignSelf:'center',
         fontFamily:Font?.Bold,
-        letterSpacing:0.8
+        letterSpacing:0.8,
     }
 })

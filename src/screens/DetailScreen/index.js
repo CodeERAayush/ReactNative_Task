@@ -79,13 +79,15 @@ const DetailScreen = ({ route,navigation }) => {
               </View>
               <TextInput
                 aria-disabled
+                placeholderTextColor={Colors?.gray}
                 value={currentProduct?.description}
-                style={{ maxHeight: heightPxToDP(30), borderWidth: 1, borderColor: Colors?.lightGray, borderRadius: 5, borderTopLeftRadius: 0, borderTopRightRadius: 0, fontFamily: Font?.Regular, fontSize: 16, padding: heightPxToDP(2), }}
+                style={styles?.description_text}
                 multiline
               />
             </View>
 
           </View>
+          <View style={{marginTop:heightPxToDP(2)}}/>
         </ScrollView>
       </>}
     </View>
@@ -139,7 +141,8 @@ const styles = StyleSheet.create({
     fontFamily: Font?.Medium,
     fontSize: 15
   },
-  description_toolbar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: widthPxToDP(3), borderWidth: 1, borderRadius: 5, borderColor: Colors?.lightGray, borderBottomWidth: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, paddingVertical: heightPxToDP(1) }
+  description_toolbar: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingHorizontal: widthPxToDP(3), borderWidth: 1, borderRadius: 5, borderColor: Colors?.lightGray, borderBottomWidth: 0, borderBottomLeftRadius: 0, borderBottomRightRadius: 0, paddingVertical: heightPxToDP(1) },
+  description_text:{ maxHeight: heightPxToDP(30), borderWidth: 1, borderColor: Colors?.lightGray, borderRadius: 5, borderTopLeftRadius: 0, borderTopRightRadius: 0, fontFamily: Font?.Regular, fontSize: 16, padding: heightPxToDP(2),color:Colors?.black }
 });
 
 export default DetailScreen;

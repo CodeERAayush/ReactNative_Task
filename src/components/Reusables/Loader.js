@@ -11,7 +11,7 @@ const Loader = ({loading}) => {
         statusBarTranslucent
         transparent>
         <Pressable
-          style={{ flex: 1, alignItems: "center", justifyContent: "center", padding: 32, backgroundColor: "#0005" }}>
+          style={styles?.backdrop}>
           <View style={styles.modalView}>
             <LottieView
             source={require('../../assets/Animations/loading.json')}
@@ -42,4 +42,5 @@ export default Loader
           shadowRadius: 4,
           elevation: 5,
         },
+        backdrop:{ flex: 1, alignItems: "center", justifyContent: "center", padding: 32, backgroundColor: "#0005" }
       })

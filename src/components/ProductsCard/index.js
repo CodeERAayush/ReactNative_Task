@@ -20,6 +20,9 @@ const ProductCard = ({ item, onPress }) => {
                             numberOfLines={1} ellipsizeMode="tail"
                             style={styles?.item_label}>{item.title}</TextHOC>
                         <View style={[styles.felx_row, styles.flex_between, styles.width_full]}>
+
+                            {/* randomly auto generating this field */}
+
                             <TextHOC style={styles?.item_tag}>#{Math.random().toFixed(15)}</TextHOC>
                             <View style={styles.category_holder}>
                                 <TextHOC style={styles?.item_category} letterSpacing={0.5}>{item?.category}</TextHOC>
@@ -75,7 +78,8 @@ const styles = StyleSheet.create({
     item_label: {
         fontFamily: Font?.SemiBold,
         color: Colors?.black,
-        fontSize: 16
+        fontSize: 16,
+        marginBottom:heightPxToDP(0.6)
     },
     item_tag: {
         fontFamily: Font?.Medium,
