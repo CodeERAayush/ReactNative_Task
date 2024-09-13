@@ -1,4 +1,4 @@
-# React Native Project with OpenAPI Integration
+# React Native Project 
 
 ## Features
 - Cross-platform mobile app (Android & iOS)
@@ -81,4 +81,9 @@ npx react-native run-ios
   /store       # Reduxtoolkit state management 
   /slices       # Reduxtoolkit slices
   /constants   # App-wide constants (e.g., colors, dimensions)
+```
+
+## App link
+```bash
+https://drive.google.com/file/d/1LnAIEK34s28VnH5F6X_QlhUG412Id6Sj/view?usp=sharing
 ```
