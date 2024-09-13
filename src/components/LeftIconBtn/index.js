@@ -15,7 +15,7 @@ const LeftIconBtn = ({ children, btnStyle ,iconType, iconName, textStyle,onPress
                 {...props}
             /> : null}
             <TextHOC
-                style={[{marginLeft:5},textStyle]}
+                style={[{marginLeft:10},textStyle]}
                 numberOfLines={1} ellipsizeMode="tail"
             >
                 {children}

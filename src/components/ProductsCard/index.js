@@ -16,7 +16,6 @@ const ProductCard = ({ item, onPress }) => {
                 <View style={styles?.top_items}>
                     <Image source={{ uri: item.image }} resizeMode={'contain'} style={styles.product_image} />
                     <View style={{ width: '80%' }}>
-                        {console.log(item)}
                         <TextHOC
                             numberOfLines={1} ellipsizeMode="tail"
                             style={styles?.item_label}>{item.title}</TextHOC>

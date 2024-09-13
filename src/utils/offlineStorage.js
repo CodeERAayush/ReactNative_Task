@@ -1,5 +1,4 @@
-// utils/offlineStorage.js
-import AsyncStorage from '@react-native-async-storage/async-storage';
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export const saveData = async (key, value) => {
   try {

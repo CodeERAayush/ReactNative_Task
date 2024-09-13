@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/Home';
 import DetailScreen from '../screens/DetailScreen';
 import AddProductScreen from '../screens/AddProduct';
+import DrawerNav from './DrawerNavigation';
 
 
 const Stack = createStackNavigator();
@@ -12,9 +13,10 @@ const StackNavigator = () => {
         <Stack.Navigator
         screenOptions={{headerShown:false}}
         initialRouteName="Home">
-          <Stack.Screen name="Home" component={HomeScreen} />
+          {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+          <Stack.Screen name="Drawer" component={DrawerNav}/>
           <Stack.Screen name="Detail" component={DetailScreen} />
-          <Stack.Screen name="AddProduct" component={AddProductScreen} options={{ title: 'Add Product' }} />
+          {/* <Stack.Screen name="AddProduct" component={AddProductScreen} options={{ title: 'Add Product' }} /> */}
         </Stack.Navigator>
   );
 };

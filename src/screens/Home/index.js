@@ -5,6 +5,8 @@ import { fetchProducts } from '../../slices';
 import CustomHeader from '../../components/CustomHeader';
 import ProductsCard from '../../components/ProductsCard';
 import AddProductBtn from '../../components/UtilityComponents/AddProduct';
+import Loader from '../../components/Reusables/Loader';
+import Empty from '../../components/Reusables/EmptyComponent';
 
 const HomeScreen = ({ navigation }) => {
   const dispatch = useDispatch();
@@ -24,17 +26,20 @@ const HomeScreen = ({ navigation }) => {
   );
 
 
-  if (status === 'loading') {
-    return <Text>Loading...</Text>;
-  }
+  // if (status === 'loading') {
+  //   return <Text>Loading...</Text>;
+  // }
 
   if (status === 'failed') {
-    return <Text>Error: {error}</Text>;
+    return <Empty/>
   }
 
   return (
     <View style={styles.container}>
-      <CustomHeader/>
+      <CustomHeader
+      onPress={()=>navigation.openDrawer()}
+      />
+     { status==='loading'?<Loader loading={true}/>:<>
       <AddProductBtn
       onPress={() => navigation.navigate('AddProduct')}
       />
@@ -43,7 +48,9 @@ const HomeScreen = ({ navigation }) => {
         renderItem={renderItem}
         keyExtractor={(item) => item.id.toString()}
         showsVerticalScrollIndicator={false}
+        ListEmptyComponent={()=><Empty/>}
       />
+      </>}
     </View>
   );
 };

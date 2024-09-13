@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, Pressable, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import TextHOC from '../TextComponentHOC'
 import { Font } from '../../assets/fonts'
@@ -7,15 +7,29 @@ import { Colors } from '../../constants/color'
 import { Images } from '../../assets/images'
 import Icon, { Icons } from '../../assets/icons'
 
-const CustomHeader = () => {
+const CustomHeader = ({onPress,goBack}) => {
   return (
     <View style={styles.header_container}>
+       {!goBack? <Pressable
+        onPress={onPress}
+        >
      <Icon
      name="menu"
      type={Icons.Feather}
      size={heightPxToDP(3)}
      color={Colors?.black}
      />
+     </Pressable>:
+        <Pressable
+        onPress={goBack}
+        >
+     <Icon
+     name="arrow-left"
+     type={Icons.Feather}
+     size={heightPxToDP(3)}
+     color={Colors?.black}
+     />
+     </Pressable>}
       <Image
       source={Images?.appNameIcon}
       resizeMode='contain'
